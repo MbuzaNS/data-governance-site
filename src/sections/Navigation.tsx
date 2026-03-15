@@ -3,9 +3,10 @@ import { Menu, X } from 'lucide-react'
 
 interface NavigationProps {
   scrollY: number
+  isSubpage?: boolean
 }
 
-const Navigation = ({ scrollY }: NavigationProps) => {
+const Navigation = ({ scrollY, isSubpage = false }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const isScrolled = scrollY > 50
 
@@ -18,6 +19,11 @@ const Navigation = ({ scrollY }: NavigationProps) => {
   ]
 
   const scrollToSection = (href: string) => {
+    if (window.location.pathname !== '/') {
+      window.location.href = `/${href}`
+      return
+    }
+
     const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
@@ -47,7 +53,7 @@ const Navigation = ({ scrollY }: NavigationProps) => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a
-              href="#"
+              href="/"
               className="font-semibold text-[#0a0a0a]"
               style={{ fontFamily: 'Poppins, sans-serif' }}
             >
@@ -59,7 +65,7 @@ const Navigation = ({ scrollY }: NavigationProps) => {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
+              {!isSubpage && navLinks.map((link) => (
                 <button
                   key={link.label}
                   onClick={() => scrollToSection(link.href)}
@@ -69,10 +75,16 @@ const Navigation = ({ scrollY }: NavigationProps) => {
                 </button>
               ))}
               <button 
-                onClick={() => scrollToSection('#contact')}
+                onClick={() => {
+                  if (isSubpage) {
+                    window.location.href = '/'
+                    return
+                  }
+                  scrollToSection('#contact')
+                }}
                 className="px-6 py-3 bg-[#0a0a0a] text-white text-sm font-medium rounded-full hover:bg-[#333333] transition-all duration-300 hover:shadow-lg"
               >
-                Get Started
+                {isSubpage ? 'Back to Home' : 'Get Started'}
               </button>
             </div>
 
@@ -105,7 +117,7 @@ const Navigation = ({ scrollY }: NavigationProps) => {
         >
           <div className="p-6 pt-20">
             <div className="flex flex-col gap-4">
-              {navLinks.map((link, index) => (
+              {!isSubpage && navLinks.map((link, index) => (
                 <button
                   key={link.label}
                   onClick={() => scrollToSection(link.href)}
@@ -119,10 +131,16 @@ const Navigation = ({ scrollY }: NavigationProps) => {
                 </button>
               ))}
               <button 
-                onClick={() => scrollToSection('#contact')}
+                onClick={() => {
+                  if (isSubpage) {
+                    window.location.href = '/'
+                    return
+                  }
+                  scrollToSection('#contact')
+                }}
                 className="mt-4 px-6 py-4 bg-[#0a0a0a] text-white font-medium rounded-full hover:bg-[#333333] transition-all duration-300"
               >
-                Get Started
+                {isSubpage ? 'Back to Home' : 'Get Started'}
               </button>
             </div>
           </div>
