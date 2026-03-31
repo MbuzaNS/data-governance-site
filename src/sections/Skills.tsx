@@ -28,16 +28,16 @@ const Skills = () => {
     {
       name: 'Governance Skills',
       skills: [
-        { name: 'Policy Writing', level: 95 },
-        { name: 'Business Engineering', level: 82 },
-        { name: 'Strategic Formation', level: 88 },
+        { name: 'Data Governance and Management', level: 98 },
+        { name: 'Strategy Formation and Business Engineering', level: 92 },
+        { name: 'AI Governance', level: 88 },
       ],
     },
     {
       name: 'Transformation Skills',
       skills: [
-        { name: 'Training and Facilitation', level: 80 },
         { name: 'Information Architecture', level: 95 },
+        { name: 'Training and Facilitation ', level: 88 },
         { name: 'Change Management', level: 90 },
       ],
     },
@@ -46,7 +46,7 @@ const Skills = () => {
       skills: [
         { name: 'GDPR/POPIA', level: 95 },
         { name: 'Data Privacy', level: 90 },
-        { name: 'DataRisk Management', level: 88 },
+        { name: 'Data Risk Management', level: 88 },
       ],
     },
   ]

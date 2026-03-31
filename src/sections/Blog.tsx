@@ -65,7 +65,8 @@ const Blog = () => {
 
         {/* Blog Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
+          {blogPosts.map((post, index) => {
+            return (
             <article
               key={post.title}
               className={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-400 cursor-pointer ${
@@ -81,9 +82,11 @@ const Blog = () => {
               {/* Image */}
               <div className="relative h-52 overflow-hidden">
                 <img
-                  src={post.image}
+                  src={post.cardImage || post.image}
                   alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108 grayscale"
+                  className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-108 ${
+                    post.cardImage ? '' : 'grayscale'
+                  }`}
                 />
                 <div className="absolute top-4 left-4">
                   <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-[#0a0a0a]">
@@ -125,7 +128,8 @@ const Blog = () => {
                 </a>
               </div>
             </article>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

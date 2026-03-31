@@ -16,6 +16,8 @@ import Footer from './sections/Footer'
 import Navigation from './sections/Navigation'
 import PrivacyPolicyPage from './sections/PrivacyPolicyPage'
 import TermsOfServicePage from './sections/TermsOfServicePage'
+import BigDataCaseStudy from './sections/BigDataCaseStudy'
+
 
 function App() {
   const [scrollY, setScrollY] = useState(0)
@@ -42,7 +44,8 @@ function App() {
     : null
   const isPrivacyPolicyPage = window.location.pathname === '/privacy-policy'
   const isTermsOfServicePage = window.location.pathname === '/terms-of-service'
-  const isSubpage = Boolean(blogSlug) || isPrivacyPolicyPage || isTermsOfServicePage
+  const isCaseStudyPage = window.location.pathname === '/case-studies/big-data-under-pressure'
+  const isSubpage = Boolean(blogSlug) || isPrivacyPolicyPage || isTermsOfServicePage || isCaseStudyPage
 
   return (
     <div 
@@ -57,6 +60,8 @@ function App() {
           <PrivacyPolicyPage />
         ) : isTermsOfServicePage ? (
           <TermsOfServicePage />
+        ) : isCaseStudyPage ? (
+          <BigDataCaseStudy />
         ) : (
           <>
             <Hero />

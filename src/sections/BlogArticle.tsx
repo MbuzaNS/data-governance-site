@@ -7,6 +7,8 @@ type BlogArticleProps = {
 
 const BlogArticle = ({ slug }: BlogArticleProps) => {
   const post = blogPosts.find((item) => item.slug === slug)
+  const keepOriginalImageColors =
+    post?.slug === 'data-governance-loved-in-principle-ignored-in-practice'
 
   if (!post) {
     return (
@@ -35,7 +37,11 @@ const BlogArticle = ({ slug }: BlogArticleProps) => {
 
         <article className="bg-white rounded-2xl overflow-hidden shadow-sm">
           <div className="relative h-64 lg:h-80 overflow-hidden">
-            <img src={post.image} alt={post.title} className="w-full h-full object-cover grayscale" />
+            <img
+              src={post.image}
+              alt={post.title}
+              className={`w-full h-full object-cover ${keepOriginalImageColors ? '' : 'grayscale'}`}
+            />
             <div className="absolute top-5 left-5">
               <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-[#0a0a0a]">
                 {post.category}

@@ -156,7 +156,9 @@ const Hero = () => {
         style={{ transitionDelay: '1.2s' }}
       >
         <a 
-          href="#" 
+          href="https://www.linkedin.com/in/bonga-mabuza-5b5498160/"
+          target="_blank"
+          rel="noreferrer"
           className="text-xs font-medium tracking-[0.2em] text-[#6a6a6a] uppercase hover:text-[#0a0a0a] transition-colors duration-300"
           style={{ writingMode: 'vertical-rl' }}
         >
