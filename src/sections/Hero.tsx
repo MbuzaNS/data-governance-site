@@ -9,13 +9,6 @@ const Hero = () => {
     return () => clearTimeout(timer)
   }, [])
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
     <section className="relative min-h-screen bg-white overflow-hidden">
       {/* Main Content Grid */}
@@ -81,13 +74,13 @@ const Hero = () => {
                 transitionTimingFunction: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
               }}
             >
-              <button 
-                onClick={() => scrollToSection('#contact')}
+              <a
+                href="/enquiries"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-[#0a0a0a] text-white font-medium rounded-full transition-all duration-300 hover:bg-[#333333] hover:shadow-xl hover:-translate-y-1"
               >
-                Start Your Transformation
+                Start Your Journey
                 <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
+              </a>
             </div>
 
             {/* Contact Info */}

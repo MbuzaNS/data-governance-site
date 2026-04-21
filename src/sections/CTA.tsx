@@ -4,9 +4,6 @@ import { useEffect, useRef, useState } from 'react'
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
-  const bookingUrl =
-    'https://outlook.office.com/bookwithme/user/fa337cf95dd64f5683288c2035b054c9%40siinoma.co.za/meetingtype/-EQyrP5eNkGdLW7c_behVw2?anonymous&ismsaljsauthenabled'
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -63,7 +60,8 @@ import { useEffect, useRef, useState } from 'react'
             }`}
             style={{ transitionDelay: '0.4s', transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
           >
-            Let's discuss how strategic data governance can unlock your organization's potential.
+            Use the standard enquiry form to share your details, subject, and message so the right
+            response can come back with context.
           </p>
 
           {/* Consultation CTA */}
@@ -78,12 +76,10 @@ import { useEffect, useRef, useState } from 'react'
           >
             <div className="max-w-2xl mx-auto">
               <a
-                href={bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/enquiries"
                 className="inline-flex items-center justify-center px-8 py-4 bg-black text-white font-medium rounded-xl transition-all duration-300 hover:bg-[#333333] hover:shadow-xl hover:-translate-y-1"
               >
-                Schedule a Consulation
+                Open Enquiry Form
               </a>
             </div>
           </div>

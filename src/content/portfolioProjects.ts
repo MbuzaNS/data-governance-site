@@ -17,4 +17,12 @@ export const portfolioProjects: PortfolioProject[] = [
     image: '/case-study-mobile-operator-emerging-markets.png',
     link: '/case-studies/big-data-under-pressure',
   },
+  {
+  title: "When Capability Is Invisible",
+  subtitle: "Data Governance · Infrastructure",
+  description: "Data governance can surface hidden organisational capability in a constrained infrastructure environment.",
+  category: "Case Study",
+  image: "/case-study-invisible-capability-greyscale.png",
+  link: "/case-studies/when-capability-is-invisible"
+  }
 ]

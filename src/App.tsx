@@ -17,6 +17,8 @@ import Navigation from './sections/Navigation'
 import PrivacyPolicyPage from './sections/PrivacyPolicyPage'
 import TermsOfServicePage from './sections/TermsOfServicePage'
 import BigDataCaseStudy from './sections/BigDataCaseStudy'
+import EnquiriesPage from './sections/EnquiriesPage'
+import InvisibleCapabilityCaseStudy from "./sections/InvisibleCapabilityCaseStudy";
 
 
 function App() {
@@ -44,15 +46,37 @@ function App() {
     : null
   const isPrivacyPolicyPage = window.location.pathname === '/privacy-policy'
   const isTermsOfServicePage = window.location.pathname === '/terms-of-service'
+  const isEnquiriesPage = window.location.pathname === '/enquiries'
   const isCaseStudyPage = window.location.pathname === '/case-studies/big-data-under-pressure'
-  const isSubpage = Boolean(blogSlug) || isPrivacyPolicyPage || isTermsOfServicePage || isCaseStudyPage
+ const isInvisibleCapabilityCaseStudyPage =
+  window.location.pathname === "/case-studies/when-capability-is-invisible";
+  const isSubpage = 
+  Boolean(blogSlug) || 
+  isPrivacyPolicyPage || 
+  isTermsOfServicePage || 
+  isEnquiriesPage ||
+  isCaseStudyPage ||
+  isInvisibleCapabilityCaseStudyPage;
 
+  const subpageBackLabel =
+    isCaseStudyPage || isInvisibleCapabilityCaseStudyPage
+      ? 'Back to Portfolio'
+      : 'Back to Home'
+
+  const subpageBackHref =
+    isCaseStudyPage || isInvisibleCapabilityCaseStudyPage ? '/#portfolio' : '/'
+ 
   return (
     <div 
       ref={mainRef}
       className={`min-h-screen bg-white transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
     >
-      <Navigation scrollY={scrollY} isSubpage={isSubpage} />
+      <Navigation
+        scrollY={scrollY}
+        isSubpage={isSubpage}
+        subpageBackLabel={subpageBackLabel}
+        subpageBackHref={subpageBackHref}
+      />
       <main>
         {blogSlug ? (
           <BlogArticle slug={blogSlug} />
@@ -60,8 +84,12 @@ function App() {
           <PrivacyPolicyPage />
         ) : isTermsOfServicePage ? (
           <TermsOfServicePage />
+        ) : isEnquiriesPage ? (
+          <EnquiriesPage />
         ) : isCaseStudyPage ? (
           <BigDataCaseStudy />
+        ) : isInvisibleCapabilityCaseStudyPage ? (
+          <InvisibleCapabilityCaseStudy />
         ) : (
           <>
             <Hero />

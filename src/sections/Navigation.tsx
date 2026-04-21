@@ -4,9 +4,16 @@ import { Menu, X } from 'lucide-react'
 interface NavigationProps {
   scrollY: number
   isSubpage?: boolean
+  subpageBackLabel?: string
+  subpageBackHref?: string
 }
 
-const Navigation = ({ scrollY, isSubpage = false }: NavigationProps) => {
+const Navigation = ({
+  scrollY,
+  isSubpage = false,
+  subpageBackLabel = 'Back to Home',
+  subpageBackHref = '/',
+}: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const isScrolled = scrollY > 50
 
@@ -77,14 +84,14 @@ const Navigation = ({ scrollY, isSubpage = false }: NavigationProps) => {
               <button 
                 onClick={() => {
                   if (isSubpage) {
-                    window.location.href = '/'
+                    window.location.href = subpageBackHref
                     return
                   }
-                  scrollToSection('#contact')
+                  window.location.href = '/enquiries'
                 }}
                 className="px-6 py-3 bg-[#0a0a0a] text-white text-sm font-medium rounded-full hover:bg-[#333333] transition-all duration-300 hover:shadow-lg"
               >
-                {isSubpage ? 'Back to Home' : 'Get Started'}
+                {isSubpage ? subpageBackLabel : 'Get Started'}
               </button>
             </div>
 
@@ -133,14 +140,14 @@ const Navigation = ({ scrollY, isSubpage = false }: NavigationProps) => {
               <button 
                 onClick={() => {
                   if (isSubpage) {
-                    window.location.href = '/'
+                    window.location.href = subpageBackHref
                     return
                   }
-                  scrollToSection('#contact')
+                  window.location.href = '/enquiries'
                 }}
                 className="mt-4 px-6 py-4 bg-[#0a0a0a] text-white font-medium rounded-full hover:bg-[#333333] transition-all duration-300"
               >
-                {isSubpage ? 'Back to Home' : 'Get Started'}
+                {isSubpage ? subpageBackLabel : 'Get Started'}
               </button>
             </div>
           </div>

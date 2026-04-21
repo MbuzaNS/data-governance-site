@@ -76,18 +76,6 @@ const Portfolio = () => {
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale"
                 />
-                <div className="pointer-events-none absolute inset-0">
-                  <div className="absolute left-[9%] top-[9%] h-8 w-8 rounded-full bg-[#c79a3b]/70 blur-md" />
-                  <div className="absolute left-[24%] top-[24%] h-8 w-8 rounded-full bg-[#c79a3b]/70 blur-md" />
-                  <div className="absolute left-[31%] top-[10%] h-7 w-7 rounded-full bg-[#c79a3b]/65 blur-md" />
-                  <div className="absolute left-[52%] top-[18%] h-8 w-8 rounded-full bg-[#c79a3b]/70 blur-md" />
-                  <div className="absolute left-[62%] top-[9%] h-8 w-8 rounded-full bg-[#c79a3b]/70 blur-md" />
-                  <div className="absolute left-[19%] top-[48%] h-8 w-8 rounded-full bg-[#c79a3b]/70 blur-md" />
-                  <div className="absolute left-[55%] top-[55%] h-9 w-9 rounded-full bg-[#c79a3b]/75 blur-md" />
-                  <div className="absolute left-[74%] top-[34%] h-8 w-8 rounded-full bg-[#c79a3b]/70 blur-md" />
-                  <div className="absolute left-[85%] top-[61%] h-8 w-8 rounded-full bg-[#c79a3b]/70 blur-md" />
-                  <div className="absolute left-[69%] top-[80%] h-9 w-9 rounded-full bg-[#c79a3b]/75 blur-md" />
-                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                 
                 {/* Category Badge */}
