@@ -21,7 +21,7 @@ export default function InsightCallout({
       className={[
         "my-10 rounded-2xl border p-6 md:p-8 shadow-sm",
         "bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950",
-        strong ? "border-[#c79a3b]/40" : "border-white/10",
+        strong ? "border-white/20" : "border-white/10",
       ].join(" ")}
     >
       <div className="flex items-start gap-4">
@@ -29,8 +29,8 @@ export default function InsightCallout({
           className={[
             "mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
             strong
-              ? "bg-[#c79a3b]/15 text-[#f0d07a]"
-              : "bg-[#c79a3b]/15 text-[#f0d07a]",
+              ? "bg-white/10 text-white"
+              : "bg-white/10 text-slate-200",
           ].join(" ")}
         >
           <Quote className="h-5 w-5" />
@@ -40,7 +40,7 @@ export default function InsightCallout({
           <p
             className={[
               "mb-2 text-xs font-semibold uppercase tracking-[0.2em]",
-              strong ? "text-[#f0d07a]" : "text-[#f0d07a]",
+              strong ? "text-white" : "text-slate-300",
             ].join(" ")}
           >
             {eyebrow}

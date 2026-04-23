@@ -28,7 +28,7 @@ const Footer = () => {
     { label: 'Services', href: '#services' },
     { label: 'Portfolio', href: '#portfolio' },
     { label: 'Blog', href: '#blog' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Contact', href: '/enquiries' },
   ]
 
   const services = [
@@ -45,6 +45,11 @@ const Footer = () => {
   ]
 
   const scrollToSection = (href: string) => {
+    if (href.startsWith('/')) {
+      window.location.href = href
+      return
+    }
+
     if (window.location.pathname !== '/') {
       window.location.href = `/${href}`
       return

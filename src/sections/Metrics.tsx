@@ -130,7 +130,7 @@ const Metrics = () => {
           {metrics.map((metric, index) => (
             <div
               key={metric.label}
-              className={`group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-400 ${
+              className={`group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:border-white/30 hover:bg-white/10 transition-all duration-400 ${
                 isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
               }`}
               style={{ 
@@ -140,7 +140,7 @@ const Metrics = () => {
               }}
             >
               {/* Value */}
-              <div className="mb-4">
+              <div className="mb-4 flex justify-center">
                 <span 
                   className="text-5xl lg:text-6xl font-bold text-white group-hover:text-white/80 transition-colors duration-300"
                 >

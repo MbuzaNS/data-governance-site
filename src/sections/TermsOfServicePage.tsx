@@ -3,19 +3,19 @@ import { termsOfService } from '../content/termsOfService'
 
 const TermsOfServicePage = () => {
   return (
-    <section className="relative overflow-hidden bg-[#f3eee3] pt-32 pb-20">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(1,97,254,0.10),_transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(10,10,10,0.08),_transparent_26%)]" />
+    <section className="relative overflow-hidden bg-white pt-32 pb-20">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(156,163,175,0.18),_transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(10,10,10,0.08),_transparent_26%)]" />
       <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-10 px-6 lg:px-12">
-        <div className="rounded-[2rem] border border-[#0a0a0a]/10 bg-white/90 p-8 shadow-[0_30px_80px_rgba(10,10,10,0.08)] backdrop-blur-sm md:p-12">
+        <div className="rounded-[2rem] border border-[#0a0a0a]/10 bg-white p-8 shadow-[0_30px_80px_rgba(10,10,10,0.08)] md:p-12">
           <a
             href="/"
-            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#0a0a0a]/70 transition-colors duration-200 hover:text-[#0161fe]"
+            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#0a0a0a]/70 transition-colors duration-200 hover:text-[#c79a3b]"
           >
             <ArrowLeft size={16} />
             Back to home
           </a>
           <div className="mb-10 flex flex-col gap-6 border-b border-[#0a0a0a]/10 pb-8">
-            <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#0a0a0a]/6 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#0a0a0a]">
+            <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#f3f4f6] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#4b5563]">
               <FileText size={14} />
               Website terms
             </div>
@@ -47,7 +47,7 @@ const TermsOfServicePage = () => {
                   <ul className="space-y-3 text-base leading-8 text-[#0a0a0a]/74">
                     {section.bullets.map((bullet) => (
                       <li key={bullet} className="flex gap-3">
-                        <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#0a0a0a]" />
+                        <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#9ca3af]" />
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -59,7 +59,7 @@ const TermsOfServicePage = () => {
               </article>
             ))}
           </div>
-          <div className="mt-12 rounded-[1.75rem] bg-[#0161fe] p-8 text-white">
+          <div className="mt-12 rounded-[1.75rem] bg-black p-8 text-white">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/60">

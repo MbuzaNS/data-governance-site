@@ -7,7 +7,12 @@ html {
 
 /* Selection color */
 ::selection {
-  background-color: rgba(1, 97, 254, 0.2);
+  background-color: rgba(199, 154, 59, 0.35);
+  color: inherit;
+}
+
+::-moz-selection {
+  background-color: rgba(199, 154, 59, 0.35);
   color: inherit;
 }
 

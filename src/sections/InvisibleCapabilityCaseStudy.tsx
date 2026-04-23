@@ -26,11 +26,11 @@ export default function InvisibleCapabilityCaseStudy() {
           <aside className="hidden lg:block">
             <div className="sticky top-24">
               <a
-                href="/#portfolio"
+                href="/"
                 className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors mb-8"
               >
                 <span>←</span>
-                <span>Back to portfolio</span>
+                <span>Back to home</span>
               </a>
 
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-4">
@@ -52,7 +52,7 @@ export default function InvisibleCapabilityCaseStudy() {
           </aside>
 
           <article className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#b8892f] mb-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500 mb-4">
               Case Study
             </p>
 
@@ -66,7 +66,7 @@ export default function InvisibleCapabilityCaseStudy() {
 
             <div className="mb-12 overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
               <img
-                src="/case-study-invisible-capability-card.png"
+                src="/case-study-invisible-capability.png"
                 alt="Illustration representing invisible workforce capability across a constrained infrastructure environment"
                 className="w-full h-auto object-cover"
               />
@@ -109,7 +109,7 @@ export default function InvisibleCapabilityCaseStudy() {
                   realisation within the organisation:
                 </p>
 
-                <blockquote className="border-l-4 border-[#c79a3b] pl-6 text-xl italic text-gray-950 my-6">
+                <blockquote className="border-l-4 border-gray-300 pl-6 text-xl italic text-gray-950 my-6">
                   It is difficult to operate a constrained system effectively
                   when you cannot trust the data used to understand it.
                 </blockquote>
@@ -191,7 +191,7 @@ export default function InvisibleCapabilityCaseStudy() {
                   straightforward:
                 </p>
 
-                <blockquote className="border-l-4 border-[#c79a3b] pl-6 text-xl italic text-gray-950 my-6">
+                <blockquote className="border-l-4 border-gray-300 pl-6 text-xl italic text-gray-950 my-6">
                   Centralised data does not automatically become usable data.
                 </blockquote>
 
@@ -285,7 +285,7 @@ export default function InvisibleCapabilityCaseStudy() {
                   depended on a small group of individuals.
                 </p>
 
-                <blockquote className="border-l-4 border-[#c79a3b] pl-6 text-xl italic text-gray-950 my-6">
+                <blockquote className="border-l-4 border-gray-300 pl-6 text-xl italic text-gray-950 my-6">
                   Data quality improves when rules are not only defined, but
                   consistently understood by the people who create and use the
                   data.
@@ -359,7 +359,7 @@ export default function InvisibleCapabilityCaseStudy() {
 
                 <p>It was systemic.</p>
 
-                <blockquote className="border-l-4 border-[#c79a3b] pl-6 text-xl italic text-gray-950 my-6">
+                <blockquote className="border-l-4 border-gray-300 pl-6 text-xl italic text-gray-950 my-6">
                   The organisation did not lack capability. It lacked
                   visibility of capability.
                 </blockquote>
@@ -383,7 +383,7 @@ export default function InvisibleCapabilityCaseStudy() {
 
                 <p>And that leads to a broader insight:</p>
 
-                <blockquote className="border-l-4 border-[#c79a3b] pl-6 text-xl italic text-gray-950 my-6">
+                <blockquote className="border-l-4 border-gray-300 pl-6 text-xl italic text-gray-950 my-6">
                   Organisations do not always struggle because capability is
                   absent. Sometimes they struggle because capability is present
                   but cannot be seen.
@@ -576,7 +576,7 @@ export default function InvisibleCapabilityCaseStudy() {
 
                 <p>This raises a fundamental question:</p>
 
-                <blockquote className="border-l-4 border-[#c79a3b] pl-6 text-xl italic text-gray-950 my-6">
+                <blockquote className="border-l-4 border-gray-300 pl-6 text-xl italic text-gray-950 my-6">
                   Can governance be sustained if it is not structurally anchored?
                 </blockquote>
 
@@ -618,7 +618,7 @@ export default function InvisibleCapabilityCaseStudy() {
 
                 <p>It was about continuity.</p>
 
-                <blockquote className="border-l-4 border-[#c79a3b] pl-6 text-xl italic text-gray-950 my-6">
+                <blockquote className="border-l-4 border-gray-300 pl-6 text-xl italic text-gray-950 my-6">
                   The real issue was not whether the data could be improved. It
                   was whether the organisation could sustain the structures
                   required to keep it improved.
@@ -647,7 +647,7 @@ export default function InvisibleCapabilityCaseStudy() {
 
                 <p>But it also surfaced a deeper organisational truth:</p>
 
-                <blockquote className="border-l-4 border-[#c79a3b] pl-6 text-xl italic text-gray-950 my-6">
+                <blockquote className="border-l-4 border-gray-300 pl-6 text-xl italic text-gray-950 my-6">
                   Data governance creates value during intervention. It becomes
                   durable only when ownership survives beyond the intervention.
                 </blockquote>
@@ -676,7 +676,7 @@ export default function InvisibleCapabilityCaseStudy() {
 
                 <p>But the deeper lesson was broader:</p>
 
-                <blockquote className="border-l-4 border-[#c79a3b] pl-6 text-xl italic text-gray-950 my-6">
+                <blockquote className="border-l-4 border-gray-300 pl-6 text-xl italic text-gray-950 my-6">
                   Governance improves decision-making in the present. It endures
                   only when continuity is built into the structure.
                 </blockquote>
