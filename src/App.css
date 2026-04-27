@@ -99,3 +99,9 @@ img[src] {
 .ease-elastic {
   transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+
+/* Hero image fade (IMPORTANT) */
+.hero-image {
+  mask-image: linear-gradient(to right, black 65%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 65%, transparent 100%);
+}
