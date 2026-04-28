@@ -24,32 +24,32 @@ const Skills = () => {
     return () => observer.disconnect()
   }, [])
 
-  const skillCategories = [
-    {
-      name: 'Governance Skills',
-      skills: [
-        { name: 'Data Governance and Management', level: 98 },
-        { name: 'Strategy Formation and Business Engineering', level: 92 },
-        { name: 'AI Governance', level: 88 },
-      ],
-    },
-    {
-      name: 'Transformation Skills',
-      skills: [
-        { name: 'Information Architecture', level: 95 },
-        { name: 'Training and Facilitation ', level: 88 },
-        { name: 'Change Management', level: 90 },
-      ],
-    },
-    {
-      name: 'Compliance & Risk',
-      skills: [
-        { name: 'GDPR/POPIA', level: 95 },
-        { name: 'Data Privacy', level: 90 },
-        { name: 'Data Risk Management', level: 88 },
-      ],
-    },
-  ]
+const skillCategories = [
+  {
+    name: 'Governance & Control',
+    skills: [
+      { name: 'Data Governance', level: 98 },
+      { name: 'AI Governance', level: 92 },
+      { name: 'Data Quality Management', level: 95 },
+    ],
+  },
+  {
+    name: 'Strategy & Operating Models',
+    skills: [
+      { name: 'Data Strategy', level: 96 },
+      { name: 'Business Engineering', level: 92 },
+      { name: 'Information Architecture', level: 94 },
+    ],
+  },
+  {
+    name: 'Risk, Privacy & Compliance',
+    skills: [
+      { name: 'Data Risk Management', level: 94 },
+      { name: 'Data Privacy', level: 91 },
+      { name: 'Regulatory Readiness', level: 90 },
+    ],
+  },
+]
 
   return (
     <section ref={sectionRef} className="py-24 lg:py-32 bg-white">

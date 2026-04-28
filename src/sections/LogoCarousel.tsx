@@ -2,19 +2,16 @@ import { useEffect, useRef, useState } from 'react'
 import {
   Lightbulb,
   Cog,
-  Database,
   Layout,
-  Users,
   Network,
   Scale,
   GraduationCap,
-  Coins,
   Tags,
-  Share2,
-  Library,
-  Package,
   Brain,
   Bot,
+  CheckCircle,
+  Shield,
+  Lock,
 } from 'lucide-react'
 
 const LogoCarousel = () => {
@@ -40,21 +37,18 @@ const LogoCarousel = () => {
   }, [])
 
   const competencies = [
-    { name: 'Data Strategy', icon: Lightbulb },
-    { name: 'Business Engineering', icon: Cog },
-    { name: 'Data Management', icon: Database },
-    { name: 'Information Architecture', icon: Network },
     { name: 'Data Governance', icon: Scale },
-    { name: 'Framework Design', icon: Layout },
-    { name: 'Data Culture Change', icon: Users },
-    { name: 'Data Economisation', icon: Coins },
-    { name: 'Metadata Design', icon: Tags },
-    { name: 'Data Sharing Enablement', icon: Share2 },
-    { name: 'Data Catalogues', icon: Library },
-    { name: 'Governed Data Products', icon: Package },
-    { name: 'Data Literacy and Training', icon: GraduationCap },
-    { name: 'Data Thought Leader', icon: Brain },
     { name: 'AI Governance', icon: Bot },
+    { name: 'Data Strategy', icon: Lightbulb },
+    { name: 'Data Quality', icon: CheckCircle },
+    { name: 'Data Risk Management', icon: Shield },
+    { name: 'Data Privacy', icon: Lock },
+    { name: 'Information Architecture', icon: Network },
+    { name: 'Business Engineering', icon: Cog },
+    { name: 'Data Operating Models', icon: Layout },
+    { name: 'Metadata Management', icon: Tags },
+    { name: 'Data Literacy', icon: GraduationCap },
+    { name: 'Data Leadership', icon: Brain },
   ]
 
   return (
