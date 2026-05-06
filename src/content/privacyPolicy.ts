@@ -181,4 +181,4 @@ export const privacyPolicy = {
       ],
     },
   ],
-} as const
+}
