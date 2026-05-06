@@ -89,7 +89,7 @@ const Hero = () => {
       </button>
 
       {/* ✅ Social Links (FIXED) */}
-      <div className="hidden lg:flex absolute right-8 bottom-12 flex-col items-center gap-6 z-50">
+      <div className="hidden lg:flex absolute right-8 bottom-[5.5rem] items-center z-50">
         
         <a
           href="https://www.linkedin.com/in/bonga-mabuza-5b5498160/"
@@ -99,14 +99,6 @@ const Hero = () => {
           style={{ writingMode: 'vertical-rl' }}
         >
           LinkedIn
-        </a>
-
-        <a
-          href="#"
-          className="text-xs tracking-[0.2em] uppercase"
-          style={{ writingMode: 'vertical-rl' }}
-        >
-          Twitter
         </a>
 
       </div>
