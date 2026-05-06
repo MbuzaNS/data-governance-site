@@ -1,5 +1,40 @@
 import { useEffect, useRef, useState } from 'react'
-import { Database, Shield, BarChart3, Cloud, ArrowRight } from 'lucide-react'
+import { ArrowRight, Scale, ShieldCheck, BarChart3, Workflow } from 'lucide-react'
+
+const services = [
+  {
+    slug: 'data-ai-governance',
+    icon: Scale,
+    theme: 'Trust',
+    title: 'Data & AI Governance',
+    description:
+      'Build trusted data and AI environments through clear governance, ethical use, accountability, ownership, and control.',
+  },
+  {
+    slug: 'data-risk-compliance-controls',
+    icon: ShieldCheck,
+    theme: 'Prevention',
+    title: 'Data Risk, Compliance & Controls',
+    description:
+      'Turn regulatory, privacy, AI, and operational risk into practical data controls that support trust, compliance, and accountable decision-making.',
+  },
+  {
+    slug: 'data-quality-analytics',
+    icon: BarChart3,
+    theme: 'Confidence',
+    title: 'Data Quality & Analytics',
+    description:
+      'Turn fragmented, unreliable data into decision-grade assets for analytics, reporting, and AI-ready insight.',
+  },
+  {
+    slug: 'data-products-engineering',
+    icon: Workflow,
+    theme: 'Value, sustained',
+    title: 'Data Products & Engineering',
+    description:
+      'Design reusable data products, pipelines, platforms, and tooling-enabled capabilities that make trusted data easier to access, scale, manage, and sustain.',
+  },
+]
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -21,33 +56,6 @@ const Services = () => {
     return () => observer.disconnect()
   }, [])
 
-  const services = [
-    {
-      icon: Database,
-      title: 'Data Strategy & Architecture',
-      description:
-        'Architect data environments that align strategy, control, and execution — not just frameworks on paper.',
-    },
-    {
-      icon: Shield,
-      title: 'Compliance & Risk Management',
-      description:
-        'Translate regulatory pressure into practical controls that work in live operating environments.',
-    },
-    {
-      icon: BarChart3,
-      title: 'Data Quality & Analytics',
-      description:
-        'Turn fragmented, unreliable data into decision-grade assets you can actually trust.',
-    },
-    {
-      icon: Cloud,
-      title: 'Cloud Data Migration',
-      description:
-        'Move to the cloud without breaking governance, control, or data integrity.',
-    },
-  ]
-
   return (
     <section
       id="services"
@@ -55,7 +63,6 @@ const Services = () => {
       className="py-20 lg:py-28 bg-[#f5f5f5]"
     >
       <div className="w-full px-6 lg:px-12 xl:px-20">
-
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
           <span
@@ -76,7 +83,7 @@ const Services = () => {
               transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
             }}
           >
-            Data Governance That Works in the Real World
+            Data Services That Build Trust and Deliver Value
           </h2>
 
           <p
@@ -88,8 +95,9 @@ const Services = () => {
               transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
             }}
           >
-            Bring control, trust, and compliance to data environments where
-            infrastructure, regulation, and reality don’t align.
+            Bring governance, control, quality, and sustainable delivery to data
+            environments where regulation, infrastructure, and business reality
+            do not always align.
           </p>
         </div>
 
@@ -98,7 +106,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`group relative bg-white rounded-2xl p-8 lg:p-10 min-h-[240px] shadow-sm hover:shadow-xl transition-all duration-350 cursor-pointer overflow-hidden ${
+              className={`group relative bg-white rounded-2xl p-8 lg:p-10 min-h-[260px] shadow-sm hover:shadow-xl transition-all duration-350 overflow-hidden ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
               }`}
               style={{
@@ -129,6 +137,10 @@ const Services = () => {
 
                 {/* Content */}
                 <div className="flex flex-col flex-1">
+                  <span className="text-xs font-semibold tracking-[0.18em] uppercase text-[#777777] mb-3">
+                    {service.theme}
+                  </span>
+
                   <h3 className="text-xl font-medium text-[#050505] mb-4 group-hover:text-black transition-colors duration-300">
                     {service.title}
                   </h3>
@@ -138,13 +150,16 @@ const Services = () => {
                   </p>
 
                   {/* Link */}
-                  <div className="mt-7 flex items-center gap-2 text-black font-medium">
+                  <a
+                    href={`/services/${service.slug}`}
+                    className="mt-7 flex items-center gap-2 text-black font-medium"
+                  >
                     <span className="text-sm">Learn More</span>
                     <ArrowRight
                       size={16}
                       className="transition-transform duration-300 group-hover:translate-x-2"
                     />
-                  </div>
+                  </a>
                 </div>
               </div>
 

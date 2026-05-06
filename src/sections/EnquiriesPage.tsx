@@ -84,7 +84,7 @@ const EnquiriesPage = () => {
             meaningful response.
           </p>
 
-          <div className="mt-10 space-y-5">
+          <div className="mt-8 space-y-4">
             {/* WHAT TO INCLUDE */}
             <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-[#161616] to-[#101010] p-6">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/75">

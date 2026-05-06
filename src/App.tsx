@@ -18,8 +18,8 @@ import PrivacyPolicyPage from './sections/PrivacyPolicyPage'
 import TermsOfServicePage from './sections/TermsOfServicePage'
 import BigDataCaseStudy from './sections/BigDataCaseStudy'
 import EnquiriesPage from './sections/EnquiriesPage'
-import InvisibleCapabilityCaseStudy from "./sections/InvisibleCapabilityCaseStudy";
-
+import InvisibleCapabilityCaseStudy from './sections/InvisibleCapabilityCaseStudy'
+import ServiceDetail from './sections/ServiceDetail'
 
 function App() {
   const [scrollY, setScrollY] = useState(0)
@@ -29,47 +29,68 @@ function App() {
   useEffect(() => {
     // Trigger load animation
     const timer = setTimeout(() => setIsLoaded(true), 100)
-    
+
     const handleScroll = () => {
       setScrollY(window.scrollY)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
+
     return () => {
       window.removeEventListener('scroll', handleScroll)
       clearTimeout(timer)
     }
   }, [])
 
-  const blogSlug = window.location.pathname.startsWith('/blog/')
-    ? decodeURIComponent(window.location.pathname.replace('/blog/', ''))
+  const pathname = window.location.pathname
+
+  const blogSlug = pathname.startsWith('/blog/')
+    ? decodeURIComponent(pathname.replace('/blog/', ''))
     : null
-  const isPrivacyPolicyPage = window.location.pathname === '/privacy-policy'
-  const isTermsOfServicePage = window.location.pathname === '/terms-of-service'
-  const isEnquiriesPage = window.location.pathname === '/enquiries'
-  const isCaseStudyPage = window.location.pathname === '/case-studies/big-data-under-pressure'
- const isInvisibleCapabilityCaseStudyPage =
-  window.location.pathname === "/case-studies/when-capability-is-invisible";
-  const isSubpage = 
-  Boolean(blogSlug) || 
-  isPrivacyPolicyPage || 
-  isTermsOfServicePage || 
-  isEnquiriesPage ||
-  isCaseStudyPage ||
-  isInvisibleCapabilityCaseStudyPage;
+
+  const serviceSlug = pathname.startsWith('/services/')
+    ? decodeURIComponent(pathname.replace('/services/', ''))
+    : null
+
+  const isPrivacyPolicyPage = pathname === '/privacy-policy'
+  const isTermsOfServicePage = pathname === '/terms-of-service'
+  const isEnquiriesPage = pathname === '/enquiries'
+  const isCaseStudyPage = pathname === '/case-studies/big-data-under-pressure'
+
+  const isInvisibleCapabilityCaseStudyPage =
+    pathname === '/case-studies/when-capability-is-invisible'
+
+  const isServicePage = Boolean(serviceSlug)
+
+  const isSubpage =
+    Boolean(blogSlug) ||
+    isServicePage ||
+    isPrivacyPolicyPage ||
+    isTermsOfServicePage ||
+    isEnquiriesPage ||
+    isCaseStudyPage ||
+    isInvisibleCapabilityCaseStudyPage
 
   const subpageBackLabel =
     isCaseStudyPage || isInvisibleCapabilityCaseStudyPage
       ? 'Back to Portfolio'
-      : 'Back to Home'
+      : isServicePage
+        ? 'Back to Services'
+        : 'Back to Home'
 
   const subpageBackHref =
-    isCaseStudyPage || isInvisibleCapabilityCaseStudyPage ? '/#portfolio' : '/'
- 
+    isCaseStudyPage || isInvisibleCapabilityCaseStudyPage
+      ? '/#portfolio'
+      : isServicePage
+        ? '/#services'
+        : '/'
+
   return (
-    <div 
+    <div
       ref={mainRef}
-      className={`min-h-screen bg-white transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+      className={`min-h-screen bg-white transition-opacity duration-500 ${
+        isLoaded ? 'opacity-100' : 'opacity-0'
+      }`}
     >
       <Navigation
         scrollY={scrollY}
@@ -77,9 +98,12 @@ function App() {
         subpageBackLabel={subpageBackLabel}
         subpageBackHref={subpageBackHref}
       />
+
       <main>
         {blogSlug ? (
           <BlogArticle slug={blogSlug} />
+        ) : serviceSlug ? (
+          <ServiceDetail slug={serviceSlug} />
         ) : isPrivacyPolicyPage ? (
           <PrivacyPolicyPage />
         ) : isTermsOfServicePage ? (
@@ -106,6 +130,7 @@ function App() {
           </>
         )}
       </main>
+
       <Footer />
     </div>
   )
