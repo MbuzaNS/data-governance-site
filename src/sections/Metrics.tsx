@@ -184,6 +184,8 @@ const Metrics = () => {
           <div className="mx-auto flex max-w-3xl flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-white/70">
             <span>Telecom</span>
             <span className="hidden text-white/20 sm:inline">•</span>
+            <span>Heavy Machinery</span>
+            <span className="hidden text-white/20 sm:inline">•</span>
             <span>Financial Services</span>
             <span className="hidden text-white/20 sm:inline">•</span>
             <span>Public Sector</span>

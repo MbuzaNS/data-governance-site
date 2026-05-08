@@ -3,10 +3,11 @@ import { Scale, ShieldCheck, BarChart3, Workflow } from 'lucide-react'
 
 export const services = [
   {
-    slug: 'data-ai-governance',
+    slug: 'data-governance-responsible-ai',
+    aliasSlugs: ['data-ai-governance', 'data-governance-respoonsibe-ai'],
     icon: Scale,
     theme: 'Trust',
-    title: 'Data & AI Governance',
+    title: 'Data Governance & Responsible AI',
     shortDescription:
       'Build trusted data and AI environments through clear governance, ethical use, accountability, ownership, and control.',
     intro:
@@ -63,7 +64,7 @@ export const services = [
     shortDescription:
       'Turn fragmented, unreliable data into decision-grade assets for analytics, reporting, and AI-ready insight.',
     intro:
-      'Data quality and analytics help organisations turn fragmented, inconsistent, or unreliable data into information that can be trusted. This service focuses on improving the quality, usability, and interpretation of data so that reporting, analytics, and decision-making are based on reliable evidence.',
+      'Data quality and analytics help organisations turn fragmented, inconsistent, or unreliable data into information that can be trusted. This work focuses on improving the quality, usability, and interpretation of data so that reporting, analytics, and decision-making are based on reliable evidence rather than disputed numbers.',
     whereIHelp: [
       'Data quality assessments',
       'Data profiling and issue analysis',
@@ -82,12 +83,13 @@ export const services = [
     ],
   },
   {
-    slug: 'data-products-engineering',
+    slug: 'data-operating-models-delivery',
+    aliasSlugs: ['data-products-engineering'],
     icon: Workflow,
     theme: 'Value, sustained',
-    title: 'Data Products & Engineering',
+    title: 'Data Operating Models & Delivery',
     shortDescription:
-      'Design reusable data products, pipelines, platforms, and tooling-enabled capabilities that make trusted data easier to access, scale, manage, and sustain.',
+      'Design the structures, roles, standards, and delivery practices that make trusted data easier to access, manage, scale, and sustain.',
     intro:
       'Data products and engineering help organisations turn data capability into reusable, scalable, and sustainable assets. This service focuses on the delivery layer: data products, pipelines, platforms, metadata, lineage, catalogues, and tooling-enabled capabilities that make trusted data easier to access, manage, and reuse.',
     whereIHelp: [

@@ -26,24 +26,24 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: 'What is data governance and why does it matter?',
-      answer: 'Data gponsibly through clear policies and processes thaovernance is the practice of managing data rest ensure data is accurate, secure, and accessibility is governed through the accountability structures. It matters because it helps organisations make better decisions with trusted data, reduces risks related to privacy, sovereignty and compliance. It unlocks greater value by enabling responsible, safe and effective data use',
+      question: '1. What kind of problems do you help solve?',
+      answer: 'I help where organisations have more data than clarity. That can include fragmented systems, inconsistent definitions, weak ownership, low confidence in reporting, unclear controls, or AI ambitions that are moving faster than the data foundations underneath them.',
     },
     {
-      question: 'How long does a typical implementation take?',
-      answer: 'A basic data governance setup usually takes 3 to 12 months. This includes establishing governance councils, onboarding key data roles, mapping data domains, and designing the full governance roadmap. Reaching a point where data governance is fully embedded and consistently practiced typically takes around 3 years. By then, most organisations progress from Level 3 (managed data) to Level 4 (automated and measured processes). After the three‑year mark, the work doesn’t stop—it simply evolves. The pace becomes steadier and more continuous. This is when data consciousness becomes woven into the organisation’s fabric, guiding decisions naturally.',
+      question: '2. Is this only data governance work?',
+      answer: 'No. Governance is part of the work, but the real focus is making data usable, trusted, and sustainable. That often includes data quality, reporting confidence, risk and compliance controls, operating models, ownership, delivery practices, and responsible AI readiness.',
     },
     {
-      question: 'What industries do you specialize in?',
-      answer: 'Data governance is industry agnostic, and its core principles apply across all sectors. My experience spans; financial services, banking, auditing and accounting, short‑ and long‑term insurance, energy and engineering. This foundation makes it straightforward to learn and apply governance practices in new industries as needed',
+      question: '3. What types of organisations do you work with?',
+      answer: 'I work best with organisations operating in complex environments — where regulation, legacy systems, infrastructure constraints, executive priorities, and operational reality do not always align.',
     },
     {
-      question: 'How do you measure success?',
-      answer: 'We measure success using both quantitative and qualitative indicators. Quantitative metrics include data quality scores, compliance audit results, time‑to‑insight improvements, and cost efficiencies. We define these KPIs upfront and track them throughout the engagement. On the qualitative side, success is reflected in stronger data awareness and more responsible data use across the organisation. A key sign of maturity is when data‑driven insights become part of everyday work—not only for decision‑makers, but for staff at all levels.',
+      question: '4. What makes your approach different?',
+      answer: 'I do not treat data as a purely technical problem. I look at the people, processes, controls, systems, and operating conditions that shape whether data can actually be trusted and used. The goal is not a beautiful framework on paper; it is a practical model that can survive real-world conditions.',
     },
     {
-      question: 'What makes your approach different?',
-      answer: 'My approach integrates deep technical capability with strategic business thinking. I don’t focus only on tools—I help organisations shift how they understand, manage, and leverage their data as a true strategic asset. This approach encompasses hands‑on information architecture design, end‑to‑end data tools architecture and implementation, and the thoughtful inclusion of AI and data‑driven thinking within broader business strategies. The result is a governance approach that is both technically robust and aligned with real organisational outcomes.',
+      question: '5. How do you measure success?',
+      answer: 'Success means fewer disputes about numbers, clearer ownership, stronger controls, better reporting confidence, and a data environment that can support analytics and AI responsibly. The work should make decisions easier, not create another layer of complexity',
     },
   ]
 
@@ -81,7 +81,7 @@ const FAQ = () => {
               }`}
               style={{ transitionDelay: '0.35s', transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
             >
-              Get answers to frequently asked questions about data governance implementations and my approach.
+              Practical answers about how I work, where I add value, and what organisations can expect when improving data trust, reporting confidence, and AI readiness.
             </p>
           </div>
 

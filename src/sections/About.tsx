@@ -26,24 +26,33 @@ const About = () => {
   }, [])
 
   const stats = [
-    { value: 10, suffix: '+', label: 'Clients', icon: Users },
-    { value: 15, suffix: '+', label: 'Roles', icon: Briefcase },
-    { value: 10, suffix: 'TB', label: 'Value Unlocked', icon: Database },
+    { value: 15, suffix: '+', label: 'Years’ Experience', icon: Users },
+    { value: 'Real-world', suffix: '', label: 'Operating environments', icon: Briefcase },
+    { value: 'Senior', suffix: '', label: 'Executive-level delivery', icon: Database },
   ]
 
-  const Counter = ({ value, suffix = '', prefix = '' }: { value: number; suffix?: string; prefix?: string }) => {
+  const Counter = ({
+    value,
+    suffix = '',
+    prefix = '',
+  }: {
+    value: number | string
+    suffix?: string
+    prefix?: string
+  }) => {
     const [count, setCount] = useState(0)
-    
+
     useEffect(() => {
-      if (!countersStarted) return
-      
+      if (!countersStarted || typeof value !== 'number') return
+
       const duration = 2000
       const steps = 60
       const increment = value / steps
       let current = 0
-      
+
       const timer = setInterval(() => {
         current += increment
+
         if (current >= value) {
           setCount(value)
           clearInterval(timer)
@@ -51,11 +60,27 @@ const About = () => {
           setCount(Math.floor(current))
         }
       }, duration / steps)
-      
+
       return () => clearInterval(timer)
     }, [countersStarted, value])
-    
-    return <span>{prefix}{count}{suffix}</span>
+
+    if (typeof value === 'string') {
+      return (
+        <span>
+          {prefix}
+          {value}
+          {suffix}
+        </span>
+      )
+    }
+
+    return (
+      <span>
+        {prefix}
+        {count}
+        {suffix}
+      </span>
+    )
   }
 
   return (
@@ -64,27 +89,29 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Left Column - Image */}
           <div className="relative order-2 lg:order-1">
-            <div 
+            <div
               className={`relative transition-all duration-1000 ${
-                isVisible ? 'opacity-100 translate-x-0 rotate-0' : 'opacity-0 -translate-x-20 -rotate-12'
+                isVisible
+                  ? 'opacity-100 translate-x-0 rotate-0'
+                  : 'opacity-0 -translate-x-20 -rotate-12'
               }`}
-              style={{ 
+              style={{
                 transitionDelay: '0.3s',
                 transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                perspective: '800px'
+                perspective: '800px',
               }}
             >
-              <div 
+              <div
                 className="relative"
                 style={{ transform: 'rotateY(-3deg)', transformStyle: 'preserve-3d' }}
               >
                 <img
                   src="/about-portrait.jpg"
-                  alt="About SIYABONGA: The Data Professional"
+                  alt="Portrait of Siyabonga Mabuza"
                   className="w-full max-w-lg rounded-2xl shadow-xl transition-all duration-400 hover:scale-[1.02]"
                   style={{ aspectRatio: '3/4', objectFit: 'cover' }}
                 />
-                
+
                 {/* Decorative Dot Pattern */}
                 <div className="absolute -z-10 -bottom-8 -right-8 grid grid-cols-5 gap-3">
                   {Array.from({ length: 20 }).map((_, i) => (
@@ -93,9 +120,9 @@ const About = () => {
                       className={`w-2 h-2 bg-black/10 rounded-full transition-all duration-600 ${
                         isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
                       }`}
-                      style={{ 
+                      style={{
                         transitionDelay: `${0.5 + i * 0.03}s`,
-                        transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+                        transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
                       }}
                     />
                   ))}
@@ -111,20 +138,21 @@ const About = () => {
                   className={`bg-white rounded-xl p-4 shadow-xl border border-gray-100 transition-all duration-500 hover:-translate-y-2 hover:border-black hover:shadow-2xl cursor-default ${
                     isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
                   }`}
-                  style={{ 
+                  style={{
                     transitionDelay: `${0.7 + index * 0.12}s`,
-                    transitionTimingFunction: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+                    transitionTimingFunction: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
                   }}
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-black/10 rounded-lg flex items-center justify-center">
                       <stat.icon size={20} className="text-black" />
                     </div>
+
                     <div>
-                      <p className="text-2xl font-bold text-[#0a0a0a]">
+                      <p className="text-2xl font-bold text-[#0a0a0a] leading-none">
                         <Counter value={stat.value} suffix={stat.suffix} />
                       </p>
-                      <p className="text-xs text-[#6a6a6a]">{stat.label}</p>
+                      <p className="text-xs text-[#6a6a6a] mt-1">{stat.label}</p>
                     </div>
                   </div>
                 </div>
@@ -136,66 +164,88 @@ const About = () => {
           <div className="order-1 lg:order-2">
             {/* Section Label */}
             <div className="flex items-center gap-3 mb-6">
-              <span 
+              <span
                 className={`text-xs font-semibold tracking-[0.2em] uppercase text-black transition-all duration-400 ${
                   isVisible ? 'opacity-100' : 'opacity-0'
                 }`}
-                style={{ 
+                style={{
                   clipPath: isVisible ? 'inset(0 0% 0 0)' : 'inset(0 100% 0 0)',
-                  transitionDelay: '0s'
+                  transitionDelay: '0s',
                 }}
               >
-                About Me
+                About
               </span>
-              <div 
+
+              <div
                 className={`h-[2px] bg-black transition-all duration-500 ${
                   isVisible ? 'w-12' : 'w-0'
                 }`}
-                style={{ transitionDelay: '0.2s', transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+                style={{
+                  transitionDelay: '0.2s',
+                  transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
               />
             </div>
 
             {/* Headline */}
-            <h2 
+            <h2
               className={`text-3xl lg:text-4xl xl:text-5xl text-[#0a0a0a] font-medium leading-tight mb-6 transition-all duration-600 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
-              style={{ transitionDelay: '0.15s', transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+              style={{
+                transitionDelay: '0.15s',
+                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
             >
-              SIYABONGA: The Data Professional
+              Practical Data Leadership for Real-World Conditions
             </h2>
 
             {/* Body Text */}
             <div className="space-y-4 mb-8">
-              <p 
+              <p
                 className={`text-[#6a6a6a] text-lg leading-relaxed transition-all duration-500 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
-                style={{ transitionDelay: '0.4s', transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
+                style={{
+                  transitionDelay: '0.4s',
+                  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                }}
               >
-                With over 15 years of experience in enterprise data management, I specialize in transforming chaotic information ecosystems into strategic assets. My approach combines technical expertise with business acumen to deliver governance frameworks that drive real competitive advantage.
+                I work with organisations that need to bring more structure, trust, and
+                control to their data. My experience spans data governance, data quality,
+                analytics readiness, regulatory alignment, and the operating models needed
+                to make data useful in practice.
               </p>
-              <p 
+
+              <p
                 className={`text-[#6a6a6a] text-lg leading-relaxed transition-all duration-500 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
-                style={{ transitionDelay: '0.55s', transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
+                style={{
+                  transitionDelay: '0.55s',
+                  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                }}
               >
-                I've helped Fortune 500 companies reduce data compliance risks by 80% while unlocking the full potential of their data investments. Every engagement is tailored to your unique challenges and objectives.
+                Much of my work sits between strategy and delivery: translating complex
+                business, risk, technology, and compliance requirements into practical data
+                capabilities that can survive real-world conditions.
               </p>
             </div>
 
             {/* CTA */}
-            <a 
-              href="/resume.pdf"
+            <a
+              href="/Siyabonga_Mabuza_Resume.pdf"
               download="Siyabonga_Mabuza_Resume.pdf"
               className={`group inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-medium rounded-lg transition-all duration-500 hover:bg-[#333333] hover:shadow-lg ${
                 isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-90'
               }`}
-              style={{ transitionDelay: '1.1s', transitionTimingFunction: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)' }}
+              style={{
+                transitionDelay: '1.1s',
+                transitionTimingFunction: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+              }}
             >
               <Download size={18} />
-              Download Full Profile
+              Resume
             </a>
           </div>
         </div>

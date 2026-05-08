@@ -37,7 +37,7 @@ import { useEffect, useRef, useState } from 'react'
         <div className="max-w-3xl mx-auto text-center">
           {/* Headline */}
           <h2 className="text-3xl lg:text-4xl xl:text-5xl text-[#0a0a0a] font-medium leading-tight mb-6">
-            {'Ready to Transform Your Data?'.split(' ').map((word, index) => (
+            {'Ready to Bring Clarity to Your Data?'.split(' ').map((word, index) => (
               <span
                 key={index}
                 className={`inline-block mr-3 transition-all duration-600 ${
@@ -60,8 +60,8 @@ import { useEffect, useRef, useState } from 'react'
             }`}
             style={{ transitionDelay: '0.4s', transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
           >
-            Use the standard enquiry form to share your details, subject, and message so the right
-            response can come back with context.
+            Share the context, challenge, or opportunity you are working through, 
+            and I’ll come back to you with a practical next step.
           </p>
 
           {/* Consultation CTA */}
@@ -79,7 +79,7 @@ import { useEffect, useRef, useState } from 'react'
                 href="/enquiries"
                 className="inline-flex items-center justify-center px-8 py-4 bg-black text-white font-medium rounded-xl transition-all duration-300 hover:bg-[#333333] hover:shadow-xl hover:-translate-y-1"
               >
-                Open Enquiry Form
+                Start a Conversation
               </a>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Linkedin, Twitter, Github, Mail, Phone, MapPin } from 'lucide-react'
+import { Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react'
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -32,16 +32,15 @@ const Footer = () => {
   ]
 
   const services = [
-    'Data Strategy & Architecture',
-    'Compliance & Risk Management',
-    'Cloud Data Migration',
-    'Data Quality &Analytics',
+    'Data Governance & Responsible AI',
+    'Data Risk, Compliance & Controls',
+    'Data Quality & Analytics',
+    'Data Operating Models & Delivery',
   ]
 
   const socialLinks = [
     { icon: Linkedin, href: 'https://www.linkedin.com/in/bonga-mabuza-5b5498160/', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Github, href: '#', label: 'GitHub' },
+    { icon: Github, href: 'https://github.com/MbuzaNS', label: 'GitHub' },
   ]
 
   const scrollToSection = (href: string) => {
@@ -87,7 +86,7 @@ const Footer = () => {
               }`}
               style={{ transitionDelay: '0.15s' }}
             >
-              Transforming data into strategic assets through enterprise governance excellence.
+              Practical data leadership for organisations that need more structure, trust, and control.
             </p>
           </div>
 
@@ -191,6 +190,8 @@ const Footer = () => {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
+                  target={social.href.startsWith('http') ? '_blank' : undefined}
+                  rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className={`flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/60 transition-all duration-250 hover:scale-110 hover:bg-white hover:text-black ${
                     isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
                   }`}

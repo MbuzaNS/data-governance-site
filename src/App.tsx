@@ -42,6 +42,27 @@ function App() {
     }
   }, [])
 
+  useEffect(() => {
+    const scrollToHashSection = () => {
+      if (window.location.pathname !== '/' || !window.location.hash) return
+
+      const targetId = decodeURIComponent(window.location.hash.replace('#', ''))
+      const target = document.getElementById(targetId)
+
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }
+
+    const timer = window.setTimeout(scrollToHashSection, 150)
+    window.addEventListener('hashchange', scrollToHashSection)
+
+    return () => {
+      window.clearTimeout(timer)
+      window.removeEventListener('hashchange', scrollToHashSection)
+    }
+  }, [])
+
   const pathname = window.location.pathname
 
   const blogSlug = pathname.startsWith('/blog/')
@@ -49,7 +70,7 @@ function App() {
     : null
 
   const serviceSlug = pathname.startsWith('/services/')
-    ? decodeURIComponent(pathname.replace('/services/', ''))
+    ? decodeURIComponent(pathname.replace('/services/', '').replace(/\/$/, ''))
     : null
 
   const isPrivacyPolicyPage = pathname === '/privacy-policy'

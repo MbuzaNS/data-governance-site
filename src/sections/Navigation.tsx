@@ -91,7 +91,7 @@ const Navigation = ({
                 }}
                 className="px-6 py-3 bg-[#0a0a0a] text-white text-sm font-medium rounded-full hover:bg-[#333333] transition-all duration-300 hover:shadow-lg"
               >
-                {isSubpage ? subpageBackLabel : 'Get Started'}
+                {isSubpage ? subpageBackLabel : 'Work With Me'}
               </button>
             </div>
 
@@ -147,7 +147,7 @@ const Navigation = ({
                 }}
                 className="mt-4 px-6 py-4 bg-[#0a0a0a] text-white font-medium rounded-full hover:bg-[#333333] transition-all duration-300"
               >
-                {isSubpage ? subpageBackLabel : 'Get Started'}
+                {isSubpage ? subpageBackLabel : 'Work With Me'}
               </button>
             </div>
           </div>

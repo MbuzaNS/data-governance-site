@@ -1,40 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, Scale, ShieldCheck, BarChart3, Workflow } from 'lucide-react'
-
-const services = [
-  {
-    slug: 'data-ai-governance',
-    icon: Scale,
-    theme: 'Trust',
-    title: 'Data & AI Governance',
-    description:
-      'Build trusted data and AI environments through clear governance, ethical use, accountability, ownership, and control.',
-  },
-  {
-    slug: 'data-risk-compliance-controls',
-    icon: ShieldCheck,
-    theme: 'Prevention',
-    title: 'Data Risk, Compliance & Controls',
-    description:
-      'Turn regulatory, privacy, AI, and operational risk into practical data controls that support trust, compliance, and accountable decision-making.',
-  },
-  {
-    slug: 'data-quality-analytics',
-    icon: BarChart3,
-    theme: 'Confidence',
-    title: 'Data Quality & Analytics',
-    description:
-      'Turn fragmented, unreliable data into decision-grade assets for analytics, reporting, and AI-ready insight.',
-  },
-  {
-    slug: 'data-products-engineering',
-    icon: Workflow,
-    theme: 'Value, sustained',
-    title: 'Data Products & Engineering',
-    description:
-      'Design reusable data products, pipelines, platforms, and tooling-enabled capabilities that make trusted data easier to access, scale, manage, and sustain.',
-  },
-]
+import { ArrowRight } from 'lucide-react'
+import { services } from '../data/ServiceData'
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -60,7 +26,7 @@ const Services = () => {
     <section
       id="services"
       ref={sectionRef}
-      className="py-20 lg:py-28 bg-[#f5f5f5]"
+      className="scroll-mt-24 py-20 lg:py-28 bg-[#f5f5f5]"
     >
       <div className="w-full px-6 lg:px-12 xl:px-20">
         {/* Header */}
@@ -71,7 +37,7 @@ const Services = () => {
             }`}
             style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
           >
-            Services
+            How I Help
           </span>
 
           <h2
@@ -83,7 +49,7 @@ const Services = () => {
               transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
             }}
           >
-            Data Services That Build Trust and Deliver Value
+           Build Trust in Data. Turn It Into Value.
           </h2>
 
           <p
@@ -95,9 +61,9 @@ const Services = () => {
               transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
             }}
           >
-            Bring governance, control, quality, and sustainable delivery to data
-            environments where regulation, infrastructure, and business reality
-            do not always align.
+            I help bring governance, control, quality, and sustainable delivery 
+            to data environments where regulation, infrastructure, 
+            and business reality do not always align.
           </p>
         </div>
 
@@ -105,7 +71,7 @@ const Services = () => {
         <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <div
-              key={service.title}
+              key={service.slug}
               className={`group relative bg-white rounded-2xl p-8 lg:p-10 min-h-[260px] shadow-sm hover:shadow-xl transition-all duration-350 overflow-hidden ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
               }`}
@@ -146,7 +112,7 @@ const Services = () => {
                   </h3>
 
                   <p className="text-[#686868] leading-relaxed flex-grow max-w-xl">
-                    {service.description}
+                    {service.shortDescription}
                   </p>
 
                   {/* Link */}

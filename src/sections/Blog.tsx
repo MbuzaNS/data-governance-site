@@ -79,21 +79,20 @@ const Blog = () => {
                 transformStyle: 'preserve-3d'
               }}
             >
-              {/* Image */}
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={post.cardImage || post.image}
-                  alt={post.title}
-                  className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-108 ${
-                    post.cardImage ? '' : 'grayscale'
-                  }`}
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-[#0a0a0a]">
-                    {post.category}
-                  </span>
+                {/* Image */}
+                <div className="relative h-52 overflow-hidden bg-black">
+                  <img
+                    src={post.cardImage || post.image}
+                    alt={post.title}
+                    className="h-full w-full object-cover contrast-105 brightness-95 transition-transform duration-500 group-hover:scale-105"
+                  />
+
+                  <div className="absolute top-4 left-4">
+                    <span className="rounded-full border border-black/10 bg-white/90 px-3 py-1 text-xs font-medium text-[#0a0a0a] backdrop-blur-sm">
+                      {post.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
               {/* Content */}
               <div className="p-6 transition-transform duration-400 group-hover:-translate-y-2">
