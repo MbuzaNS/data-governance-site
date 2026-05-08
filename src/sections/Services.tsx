@@ -120,7 +120,7 @@ const Services = () => {
                     href={`/services/${service.slug}`}
                     className="mt-7 flex items-center gap-2 text-black font-medium"
                   >
-                    <span className="text-sm">Learn More</span>
+                    <span className="text-sm">{service.linkLabel}</span>
                     <ArrowRight
                       size={16}
                       className="transition-transform duration-300 group-hover:translate-x-2"

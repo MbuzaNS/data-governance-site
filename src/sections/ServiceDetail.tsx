@@ -87,7 +87,7 @@ const ServiceDetail = ({ slug }: ServiceDetailProps) => {
               href="/enquiries"
               className="mt-8 inline-flex items-center gap-2 bg-black text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-[#222222] transition-colors duration-300"
             >
-              Work With Me
+              Start a Conversation
               <ArrowRight size={16} />
             </a>
           </div>

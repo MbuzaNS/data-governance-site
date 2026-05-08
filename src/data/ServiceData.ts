@@ -8,6 +8,7 @@ export const services = [
     icon: Scale,
     theme: 'Trust',
     title: 'Data Governance & Responsible AI',
+    linkLabel: 'Explore Governance',
     shortDescription:
       'Build trusted data and AI environments through clear governance, ethical use, accountability, ownership, and control.',
     intro:
@@ -35,6 +36,7 @@ export const services = [
     icon: ShieldCheck,
     theme: 'Prevention',
     title: 'Data Risk, Compliance & Controls',
+    linkLabel: 'Explore Controls',
     shortDescription:
       'Turn regulatory, privacy, AI, and operational risk into practical data controls that support trust, compliance, and accountable decision-making.',
     intro:
@@ -61,6 +63,7 @@ export const services = [
     icon: BarChart3,
     theme: 'Confidence',
     title: 'Data Quality & Analytics',
+    linkLabel: 'Explore Data Quality',
     shortDescription:
       'Turn fragmented, unreliable data into decision-grade assets for analytics, reporting, and AI-ready insight.',
     intro:
@@ -88,6 +91,7 @@ export const services = [
     icon: Workflow,
     theme: 'Value, sustained',
     title: 'Data Operating Models & Delivery',
+    linkLabel: 'Explore Delivery',
     shortDescription:
       'Design the structures, roles, standards, and delivery practices that make trusted data easier to access, manage, scale, and sustain.',
     intro:
