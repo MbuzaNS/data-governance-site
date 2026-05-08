@@ -39,8 +39,16 @@ const Footer = () => {
   ]
 
   const socialLinks = [
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/bonga-mabuza-5b5498160/', label: 'LinkedIn' },
-    { icon: Github, href: 'https://github.com/MbuzaNS', label: 'GitHub' },
+    {
+      icon: Linkedin,
+      href: 'https://www.linkedin.com/in/bonga-mabuza-5b5498160/',
+      label: 'LinkedIn',
+    },
+    {
+      icon: Github,
+      href: 'https://github.com/MbuzaNS',
+      label: 'GitHub',
+    },
   ]
 
   const scrollToSection = (href: string) => {
@@ -55,6 +63,7 @@ const Footer = () => {
     }
 
     const element = document.querySelector(href)
+
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
@@ -66,22 +75,27 @@ const Footer = () => {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 mb-16">
           <div
             className={`transition-all duration-500 ${
-              isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
+              isVisible
+                ? 'opacity-100 translate-y-0 scale-100'
+                : 'opacity-0 translate-y-8 scale-95'
             }`}
             style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
           >
+            {/* Footer Logo */}
             <a
               href="/"
-              className="mb-4 inline-block text-white"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
+              className="mb-5 inline-flex items-center"
+              aria-label="Siyabonga - The Data Professional"
             >
-              <span className="flex flex-col leading-tight">
-                <span className="text-2xl font-semibold">SIYABONGA</span>
-                <span className="text-base font-medium">The Data Professional</span>
-              </span>
+              <img
+                src="/siyabonga-logo.png"
+                alt="Siyabonga - The Data Professional"
+                className="h-[64px] w-auto max-w-[280px] object-contain invert"
+              />
             </a>
+
             <p
-              className={`text-white/60 leading-relaxed transition-all duration-400 ${
+              className={`max-w-sm text-white/60 leading-relaxed transition-all duration-400 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
               style={{ transitionDelay: '0.15s' }}
@@ -99,12 +113,15 @@ const Footer = () => {
             >
               Quick Links
             </h4>
+
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li
                   key={link.label}
                   className={`transition-all duration-400 ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                    isVisible
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-5'
                   }`}
                   style={{ transitionDelay: `${0.2 + index * 0.08}s` }}
                 >
@@ -128,12 +145,15 @@ const Footer = () => {
             >
               Services
             </h4>
+
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li
                   key={service}
                   className={`transition-all duration-400 ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                    isVisible
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-5'
                   }`}
                   style={{ transitionDelay: `${0.25 + index * 0.08}s` }}
                 >
@@ -154,28 +174,37 @@ const Footer = () => {
             >
               Contact
             </h4>
+
             <ul className="space-y-4">
               <li
                 className={`flex items-center gap-3 text-white/60 transition-all duration-400 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                  isVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-5'
                 }`}
                 style={{ transitionDelay: '0.3s' }}
               >
                 <Mail size={18} className="text-white/40" />
                 siyabonga@siinoma.co.za
               </li>
+
               <li
                 className={`flex items-center gap-3 text-white/60 transition-all duration-400 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                  isVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-5'
                 }`}
                 style={{ transitionDelay: '0.38s' }}
               >
                 <Phone size={18} className="text-white/40" />
                 +27 (0) 71 679 6220
               </li>
+
               <li
                 className={`flex items-center gap-3 text-white/60 transition-all duration-400 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                  isVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-5'
                 }`}
                 style={{ transitionDelay: '0.46s' }}
               >
@@ -197,7 +226,8 @@ const Footer = () => {
                   }`}
                   style={{
                     transitionDelay: `${0.5 + index * 0.1}s`,
-                    transitionTimingFunction: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+                    transitionTimingFunction:
+                      'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
                   }}
                 >
                   <social.icon size={18} />
@@ -221,11 +251,19 @@ const Footer = () => {
           style={{ transitionDelay: '0.7s' }}
         >
           <p>&copy; 2026 Siyabonga | The Data Professional. All rights reserved.</p>
+
           <div className="flex gap-6">
-            <a href="/privacy-policy" className="transition-colors duration-200 hover:text-white">
+            <a
+              href="/privacy-policy"
+              className="transition-colors duration-200 hover:text-white"
+            >
               Privacy Policy
             </a>
-            <a href="/terms-of-service" className="transition-colors duration-200 hover:text-white">
+
+            <a
+              href="/terms-of-service"
+              className="transition-colors duration-200 hover:text-white"
+            >
               Terms of Service
             </a>
           </div>

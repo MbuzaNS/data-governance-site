@@ -32,17 +32,19 @@ const Navigation = ({
     }
 
     const element = document.querySelector(href)
+
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
+
     setIsMenuOpen(false)
   }
 
-  // Close menu on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setIsMenuOpen(false)
     }
+
     window.addEventListener('keydown', handleEscape)
     return () => window.removeEventListener('keydown', handleEscape)
   }, [])
@@ -52,8 +54,8 @@ const Navigation = ({
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm py-4'
-            : 'bg-transparent py-6'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm py-2.5'
+            : 'bg-transparent py-3'
         }`}
       >
         <div className="w-full px-6 lg:px-12 xl:px-20">
@@ -61,32 +63,36 @@ const Navigation = ({
             {/* Logo */}
             <a
               href="/"
-              className="font-semibold text-[#0a0a0a]"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
+              className="flex items-center shrink-0"
+              aria-label="Siyabonga - The Data Professional"
             >
-              <span className="flex flex-col leading-tight">
-                  <span className="text-xl">SIYABONGA</span>
-                  <span className="text-sm lg:text-base font-medium">The Data Professional</span>
-              </span>
+              <img
+                src="/siyabonga-logo.png"
+                alt="Siyabonga - The Data Professional"
+                className="h-[52px] sm:h-[58px] lg:h-[64px] xl:h-[68px] w-auto max-w-[280px] object-contain"
+              />
             </a>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
-              {!isSubpage && navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-sm font-medium text-[#0a0a0a]/70 hover:text-[#0a0a0a] transition-colors duration-300"
-                >
-                  {link.label}
-                </button>
-              ))}
-              <button 
+              {!isSubpage &&
+                navLinks.map((link) => (
+                  <button
+                    key={link.label}
+                    onClick={() => scrollToSection(link.href)}
+                    className="text-sm font-medium text-[#0a0a0a]/70 hover:text-[#0a0a0a] transition-colors duration-300"
+                  >
+                    {link.label}
+                  </button>
+                ))}
+
+              <button
                 onClick={() => {
                   if (isSubpage) {
                     window.location.href = subpageBackHref
                     return
                   }
+
                   window.location.href = '/enquiries'
                 }}
                 className="px-6 py-3 bg-[#0a0a0a] text-white text-sm font-medium rounded-full hover:bg-[#333333] transition-all duration-300 hover:shadow-lg"
@@ -100,6 +106,7 @@ const Navigation = ({
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden p-2 text-[#0a0a0a]"
               aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -113,36 +120,42 @@ const Navigation = ({
           isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
       >
-        <div 
+        <div
           className="absolute inset-0 bg-black/50 backdrop-blur-sm"
           onClick={() => setIsMenuOpen(false)}
         />
+
         <div
           className={`absolute top-0 right-0 w-full max-w-sm h-full bg-white shadow-2xl transition-transform duration-500 ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          <div className="p-6 pt-20">
+          <div className="p-6 pt-24">
             <div className="flex flex-col gap-4">
-              {!isSubpage && navLinks.map((link, index) => (
-                <button
-                  key={link.label}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-left text-lg font-medium text-[#0a0a0a] py-3 border-b border-gray-100 hover:text-[#333333] transition-colors"
-                  style={{ 
-                    animationDelay: `${index * 50}ms`,
-                    animation: isMenuOpen ? 'fadeInRight 0.4s ease forwards' : 'none'
-                  }}
-                >
-                  {link.label}
-                </button>
-              ))}
-              <button 
+              {!isSubpage &&
+                navLinks.map((link, index) => (
+                  <button
+                    key={link.label}
+                    onClick={() => scrollToSection(link.href)}
+                    className="text-left text-lg font-medium text-[#0a0a0a] py-3 border-b border-gray-100 hover:text-[#333333] transition-colors"
+                    style={{
+                      animationDelay: `${index * 50}ms`,
+                      animation: isMenuOpen
+                        ? 'fadeInRight 0.4s ease forwards'
+                        : 'none',
+                    }}
+                  >
+                    {link.label}
+                  </button>
+                ))}
+
+              <button
                 onClick={() => {
                   if (isSubpage) {
                     window.location.href = subpageBackHref
                     return
                   }
+
                   window.location.href = '/enquiries'
                 }}
                 className="mt-4 px-6 py-4 bg-[#0a0a0a] text-white font-medium rounded-full hover:bg-[#333333] transition-all duration-300"
@@ -171,4 +184,3 @@ const Navigation = ({
 }
 
 export default Navigation
-
