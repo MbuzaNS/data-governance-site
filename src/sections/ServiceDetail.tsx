@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import {
   ArrowLeft,
   ArrowRight,
@@ -9,10 +10,145 @@ type ServiceDetailProps = {
   slug: string
 }
 
+const SITE_URL = 'https://siyabonga.pro'
+
+const setMetaTag = (name: string, content: string, property = false) => {
+  const selector = property
+    ? `meta[property="${name}"]`
+    : `meta[name="${name}"]`
+
+  let tag = document.head.querySelector(selector) as HTMLMetaElement | null
+
+  if (!tag) {
+    tag = document.createElement('meta')
+    if (property) {
+      tag.setAttribute('property', name)
+    } else {
+      tag.setAttribute('name', name)
+    }
+    document.head.appendChild(tag)
+  }
+
+  tag.setAttribute('content', content)
+}
+
+const setCanonicalUrl = (url: string) => {
+  let link = document.head.querySelector(
+    'link[rel="canonical"]'
+  ) as HTMLLinkElement | null
+
+  if (!link) {
+    link = document.createElement('link')
+    link.setAttribute('rel', 'canonical')
+    document.head.appendChild(link)
+  }
+
+  link.setAttribute('href', url)
+}
+
 const ServiceDetail = ({ slug }: ServiceDetailProps) => {
   const service = services.find(
     (item) => item.slug === slug || item.aliasSlugs?.includes(slug)
   )
+
+  useEffect(() => {
+    if (!service) return
+
+    const serviceUrl = `${SITE_URL}/services/${service.slug}`
+
+    document.title = service.seoTitle
+
+    setMetaTag('description', service.seoDescription)
+    setMetaTag('keywords', service.seoKeywords.join(', '))
+
+    setMetaTag('og:title', service.seoTitle, true)
+    setMetaTag('og:description', service.seoDescription, true)
+    setMetaTag('og:type', 'website', true)
+    setMetaTag('og:url', serviceUrl, true)
+
+    setMetaTag('twitter:card', 'summary_large_image')
+    setMetaTag('twitter:title', service.seoTitle)
+    setMetaTag('twitter:description', service.seoDescription)
+
+    setCanonicalUrl(serviceUrl)
+
+    const existingServiceSchema = document.getElementById('service-detail-schema')
+    if (existingServiceSchema) existingServiceSchema.remove()
+
+    const existingBreadcrumbSchema = document.getElementById(
+      'service-breadcrumb-schema'
+    )
+    if (existingBreadcrumbSchema) existingBreadcrumbSchema.remove()
+
+    const serviceSchema = document.createElement('script')
+    serviceSchema.id = 'service-detail-schema'
+    serviceSchema.type = 'application/ld+json'
+    serviceSchema.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      '@id': `${serviceUrl}#service`,
+      name: service.title,
+      description: service.schemaDescription,
+      serviceType: service.schemaServiceType,
+      url: serviceUrl,
+      areaServed: {
+        '@type': 'Country',
+        name: 'South Africa',
+      },
+      provider: {
+        '@type': 'ProfessionalService',
+        name: 'Siyabonga.Pro',
+        alternateName: 'The Data Professional',
+        url: SITE_URL,
+      },
+      keywords: service.seoKeywords,
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': serviceUrl,
+      },
+    })
+
+    const breadcrumbSchema = document.createElement('script')
+    breadcrumbSchema.id = 'service-breadcrumb-schema'
+    breadcrumbSchema.type = 'application/ld+json'
+    breadcrumbSchema.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: SITE_URL,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Services',
+          item: `${SITE_URL}/#services`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: service.title,
+          item: serviceUrl,
+        },
+      ],
+    })
+
+    document.head.appendChild(serviceSchema)
+    document.head.appendChild(breadcrumbSchema)
+
+    return () => {
+      const currentServiceSchema = document.getElementById('service-detail-schema')
+      if (currentServiceSchema) currentServiceSchema.remove()
+
+      const currentBreadcrumbSchema = document.getElementById(
+        'service-breadcrumb-schema'
+      )
+      if (currentBreadcrumbSchema) currentBreadcrumbSchema.remove()
+    }
+  }, [service])
 
   const scrollToServices = () => {
     if (window.location.pathname !== '/') {
@@ -53,7 +189,11 @@ const ServiceDetail = ({ slug }: ServiceDetailProps) => {
   }
 
   return (
-    <section className="min-h-screen bg-[#f5f5f5] px-6 lg:px-12 xl:px-20 py-20 lg:py-28">
+    <section
+      id={service.slug}
+      aria-label={`${service.title}: ${service.seoKeywords.join(', ')}`}
+      className="min-h-screen bg-[#f5f5f5] px-6 lg:px-12 xl:px-20 py-20 lg:py-28"
+    >
       <div className="max-w-6xl mx-auto">
         <button
           type="button"
@@ -68,7 +208,7 @@ const ServiceDetail = ({ slug }: ServiceDetailProps) => {
           {/* Left Summary Card */}
           <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-sm lg:sticky lg:top-28">
             <div className="w-16 h-16 bg-[#dddddd] rounded-xl flex items-center justify-center mb-7">
-              <service.icon size={28} className="text-black" />
+              <service.icon size={28} className="text-black" aria-hidden="true" />
             </div>
 
             <span className="text-xs font-semibold tracking-[0.18em] uppercase text-[#777777]">

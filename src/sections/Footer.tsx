@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react'
+import { services } from '../data/ServiceData'
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -29,13 +30,6 @@ const Footer = () => {
     { label: 'Portfolio', href: '#portfolio' },
     { label: 'Blog', href: '#blog' },
     { label: 'Contact', href: '/enquiries' },
-  ]
-
-  const services = [
-    'Data Governance & Responsible AI',
-    'Data Risk, Compliance & Controls',
-    'Data Quality & Analytics',
-    'Data Operating Models & Delivery',
   ]
 
   const socialLinks = [
@@ -149,7 +143,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li
-                  key={service}
+                  key={service.slug}
                   className={`transition-all duration-400 ${
                     isVisible
                       ? 'opacity-100 translate-y-0'
@@ -157,9 +151,12 @@ const Footer = () => {
                   }`}
                   style={{ transitionDelay: `${0.25 + index * 0.08}s` }}
                 >
-                  <span className="inline-block cursor-pointer text-white/60 transition-all duration-200 hover:translate-x-1 hover:text-white">
-                    {service}
-                  </span>
+                  <a
+                    href={`/services/${service.slug}`}
+                    className="inline-block text-white/60 transition-all duration-200 hover:translate-x-1 hover:text-white"
+                  >
+                    {service.title}
+                  </a>
                 </li>
               ))}
             </ul>
