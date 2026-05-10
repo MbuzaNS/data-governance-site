@@ -163,7 +163,7 @@ const About = () => {
           {/* Right Column - Content */}
           <div className="order-1 lg:order-2">
             {/* Section Label */}
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex flex-wrap items-center gap-3 mb-6">
               <span
                 className={`text-xs font-semibold tracking-[0.2em] uppercase text-black transition-all duration-400 ${
                   isVisible ? 'opacity-100' : 'opacity-0'
@@ -185,6 +185,17 @@ const About = () => {
                   transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
               />
+
+              <span
+                className={`text-xs font-semibold tracking-[0.2em] uppercase text-black transition-all duration-400 ${
+                  isVisible ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{
+                  transitionDelay: '0.3s',
+                }}
+              >
+                Siyabonga (Bonga) Mabuza
+              </span>
             </div>
 
             {/* Headline */}
