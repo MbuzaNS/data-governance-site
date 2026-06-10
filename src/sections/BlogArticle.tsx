@@ -1,4 +1,4 @@
-import { ArrowLeft, Calendar } from 'lucide-react'
+import { ArrowLeft, Calendar, Landmark, Users, Unlock } from 'lucide-react'
 import { blogPosts } from '../content/blogPosts'
 
 type BlogArticleProps = {
@@ -48,7 +48,7 @@ const BlogArticle = ({ slug }: BlogArticleProps) => {
         return (
           <div
             key={`${post.slug}-${index}`}
-            className="my-8 rounded-2xl border border-black/8 bg-[#f7f7f6] p-6 transition duration-500 hover:-translate-y-[2px] hover:border-black/12 hover:bg-[#f2f2f1]"
+            className="my-12 rounded-2xl border border-black/8 bg-[#f7f7f6] p-6 transition duration-500 hover:-translate-y-[2px] hover:border-black/12 hover:bg-[#f2f2f1]"
           >
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6a6a6a]">
               {block.title}
@@ -62,19 +62,48 @@ const BlogArticle = ({ slug }: BlogArticleProps) => {
         return (
           <blockquote
             key={`${post.slug}-${index}`}
-            className="my-10 rounded-2xl border-l-4 border-[#d9d9d6] bg-[#f7f7f6] px-6 py-6 text-xl font-medium leading-9 text-[#1f1f1f] md:text-2xl md:leading-10"
+            className="my-12 rounded-2xl border-l-4 border-[#d9d9d6] bg-[#f7f7f6] px-6 py-8 text-xl font-medium leading-9 text-[#1f1f1f] md:text-2xl md:leading-10"
           >
             {block.text}
           </blockquote>
         )
       }
 
+      if (block.type === 'pillars') {
+        return (
+          <div
+            key={`${post.slug}-${index}`}
+            className="my-12 rounded-2xl bg-[#0a0a0a] p-6"
+          >
+            <p className="mb-4 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white">
+              {block.label}
+            </p>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {block.items.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-xl border border-white/10 bg-[#1a1a1a] p-4"
+                >
+                  <div className="mb-3 text-white">
+                    {item.icon === 'landmark' && <Landmark size={24} />}
+                    {item.icon === 'users' && <Users size={24} />}
+                    {item.icon === 'unlock' && <Unlock size={24} />}
+                  </div>
+                  <p className="mb-2 text-[14px] font-semibold text-white">{item.title}</p>
+                  <p className="text-[13px] leading-relaxed text-white">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
       return (
-        <section key={`${post.slug}-${index}`} className="mt-14 first:mt-0">
-          <h2 className="mb-5 text-2xl font-semibold tracking-tight text-[#0a0a0a] md:text-3xl">
+        <section key={`${post.slug}-${index}`} className="mt-16 first:mt-0">
+          <h2 className="mb-6 text-2xl font-semibold tracking-tight text-[#0a0a0a] md:text-3xl">
             {block.title}
           </h2>
-          <div className="space-y-5 text-[15px] leading-8 text-[#4f4f4f] md:text-[17px]">
+          <div className="space-y-6 text-[15px] leading-8 text-[#4f4f4f] md:text-[17px]">
             {block.paragraphs.map((paragraph, paragraphIndex) => (
               <p key={`${post.slug}-${index}-${paragraphIndex}`}>{paragraph}</p>
             ))}

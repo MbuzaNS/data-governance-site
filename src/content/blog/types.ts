@@ -1,8 +1,11 @@
+export type PillarItem = { icon: string; title: string; description: string }
+
 export type BlogBodyBlock =
   | { type: 'paragraph'; text: string; lead?: boolean }
   | { type: 'highlight'; title: string; text: string }
   | { type: 'quote'; text: string }
   | { type: 'section'; title: string; paragraphs: readonly string[] }
+  | { type: 'pillars'; label: string; items: readonly PillarItem[] }
 
 export type BlogPost = {
   slug: string
