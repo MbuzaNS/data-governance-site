@@ -2,7 +2,7 @@ import { defineBlogPost } from '../types'
 
 export const dataGovernanceResponsibleAIPost = defineBlogPost({
   slug: 'data-governance-responsible-ai-sovereignty',
-  title: 'Data Governance is the Bedrock for Responsible AI and Data Sovereignty',
+  title: 'The Bedrock Beneath the Machine: Why Data Governance Is the Foundation of Responsible AI and Data Sovereignty',
   excerpt:
     'Organisations rushing to deploy AI without governing their data are building on sand. True responsibility in AI begins long before the first model is trained — it begins with how data is collected, controlled, and respected.',
   date: 'Jun 10, 2026',
