@@ -98,8 +98,75 @@ const BlogArticle = ({ slug }: BlogArticleProps) => {
         )
       }
 
+      if (block.type === 'stats') {
+        return (
+          <div
+            key={`${post.slug}-${index}`}
+            className="my-12 grid grid-cols-2 gap-3 sm:grid-cols-4"
+          >
+            {block.items.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-2xl border border-black/8 bg-[#f7f7f6] p-5 text-center"
+              >
+                <div className="text-[26px] font-semibold text-[#0a0a0a]">{item.value}</div>
+                <div className="mt-2 text-xs leading-snug text-[#6a6a6a]">{item.label}</div>
+              </div>
+            ))}
+          </div>
+        )
+      }
+
+      if (block.type === 'grid') {
+        return (
+          <div
+            key={`${post.slug}-${index}`}
+            className="my-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {block.items.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-black/8 bg-white p-5"
+              >
+                <div className="mb-2 text-2xl font-semibold text-[#0a0a0a]">{item.letter}</div>
+                <div className="mb-2 text-sm font-semibold text-[#0a0a0a]">{item.title}</div>
+                <div className="text-[13px] leading-relaxed text-[#6a6a6a]">{item.description}</div>
+              </div>
+            ))}
+          </div>
+        )
+      }
+
+      if (block.type === 'checklist') {
+        return (
+          <div key={`${post.slug}-${index}`} className="my-12 space-y-4">
+            {block.groups.map((group) => (
+              <div
+                key={group.title}
+                className="rounded-2xl border border-black/8 bg-[#f7f7f6] p-6"
+              >
+                <h3 className="mb-4 text-[15px] font-semibold text-[#0a0a0a]">{group.title}</h3>
+                <ul className="space-y-2.5">
+                  {group.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-[14px] leading-relaxed text-[#4f4f4f]">
+                      <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0a0a0a]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )
+      }
+
       return (
         <section key={`${post.slug}-${index}`} className="mt-16 first:mt-0">
+          {block.eyebrow ? (
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6a6a6a]">
+              {block.eyebrow}
+            </p>
+          ) : null}
           <h2 className="mb-6 text-2xl font-semibold tracking-tight text-[#0a0a0a] md:text-3xl">
             {block.title}
           </h2>
