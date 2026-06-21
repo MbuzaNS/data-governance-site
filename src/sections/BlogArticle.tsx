@@ -189,11 +189,12 @@ const BlogArticle = ({ slug }: BlogArticleProps) => {
         </a>
 
         <article className="bg-white rounded-2xl overflow-hidden shadow-sm">
-          <div className="relative h-64 lg:h-80 overflow-hidden">
+          <div className="relative h-64 lg:h-80 overflow-hidden bg-black">
             <img
               src={post.image}
               alt={post.title}
-              className={`w-full h-full object-cover ${keepOriginalImageColors ? '' : 'grayscale'}`}
+              className={`w-full h-full ${post.imageFit === 'contain' ? 'object-contain' : 'object-cover'} ${keepOriginalImageColors ? '' : 'grayscale'}`}
+              style={{ objectPosition: post.imagePosition || 'center' }}
             />
             <div className="absolute top-5 left-5">
               <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-[#0a0a0a]">

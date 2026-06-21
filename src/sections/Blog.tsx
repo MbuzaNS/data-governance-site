@@ -84,7 +84,8 @@ const Blog = () => {
                   <img
                     src={post.cardImage || post.image}
                     alt={post.title}
-                    className="h-full w-full object-cover contrast-105 brightness-95 transition-transform duration-500 group-hover:scale-105"
+                    className={`h-full w-full ${post.imageFit === 'contain' ? 'object-contain' : 'object-cover'} contrast-105 brightness-95 transition-transform duration-500 group-hover:scale-105`}
+                    style={{ objectPosition: post.imagePosition || 'center' }}
                   />
 
                   <div className="absolute top-4 left-4">

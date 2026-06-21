@@ -21,6 +21,8 @@ export type BlogPost = {
   category: string
   image: string
   cardImage?: string
+  imagePosition?: string
+  imageFit?: 'cover' | 'contain'
   eyebrow?: string
   tags?: readonly string[]
   theme?: 'light' | 'editorial-dark'
