@@ -5,7 +5,7 @@ export const africaAiBiasPost = defineBlogPost({
   title: 'Rewriting the Algorithm: How Africa Can Claim Its Place at the Centre of the AI Revolution',
   excerpt:
     'Artificial intelligence systems have been trained on a world that barely noticed Africa. That is not a reason for despair — it is a strategic opportunity to write the next chapter of intelligence itself.',
-  date: 'Jun 2026',
+  date: '21 Jun 2026',
   category: 'Artificial Intelligence',
   image: '/ai-biases-hero-3.png',
   cardImage: '/ai-biases-hero-3.png',
