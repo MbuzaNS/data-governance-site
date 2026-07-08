@@ -137,6 +137,46 @@ const BlogArticle = ({ slug }: BlogArticleProps) => {
         )
       }
 
+      if (block.type === 'table') {
+        return (
+          <div
+            key={`${post.slug}-${index}`}
+            className="my-12 overflow-x-auto rounded-2xl border border-black/8"
+          >
+            <table className="w-full min-w-[640px] border-collapse text-left text-[13px] leading-relaxed">
+              <thead>
+                <tr>
+                  {block.headers.map((header) => (
+                    <th
+                      key={header}
+                      className="border-b border-black/8 bg-[#0a0a0a] p-4 font-semibold text-white"
+                    >
+                      {header}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {block.rows.map((row, rowIndex) => (
+                  <tr key={`${post.slug}-${index}-row-${rowIndex}`}>
+                    {row.map((cell, cellIndex) => (
+                      <td
+                        key={`${post.slug}-${index}-row-${rowIndex}-cell-${cellIndex}`}
+                        className={`border-b border-black/8 p-4 align-top text-[#4f4f4f] ${
+                          rowIndex % 2 === 1 ? 'bg-[#f7f7f6]' : 'bg-white'
+                        } ${cellIndex === 0 ? 'font-semibold text-[#0a0a0a]' : ''}`}
+                      >
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )
+      }
+
       if (block.type === 'checklist') {
         return (
           <div key={`${post.slug}-${index}`} className="my-12 space-y-4">

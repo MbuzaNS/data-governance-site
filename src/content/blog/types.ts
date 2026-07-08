@@ -12,6 +12,7 @@ export type BlogBodyBlock =
   | { type: 'stats'; items: readonly StatItem[] }
   | { type: 'grid'; items: readonly GridCard[] }
   | { type: 'checklist'; groups: readonly ChecklistGroup[] }
+  | { type: 'table'; headers: readonly string[]; rows: readonly (readonly string[])[] }
 
 export type BlogPost = {
   slug: string
